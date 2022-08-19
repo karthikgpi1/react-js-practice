@@ -4,18 +4,32 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 
+class Test extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      age: 0,
+      show: true,
+    };
+    
+  }
+  render () {
+    return (
+      <> 
+      <button onClick={() => this.setState({age: this.state.age + 1})}>increment age</button>  
+      <button onClick={() => this.setState({show: !this.state.show})}>Hide/show</button>                                       
+      {this.state.show ? <App age={this.state.age}/> : <></>}
+      </>
+    );
+  }
+
+}
+
+export default Test;
 
 
-ReactDOM.render(
-  <div>                                         
-    <App
-    name = ""
-    age = {22}
-    obj = {{name: "mk"}}
-    active = {true}
-    /> 
-  </div>,
-document.getElementById('root')); 
+ReactDOM.render(<Test />, document.getElementById('root')); 
 
 
 
