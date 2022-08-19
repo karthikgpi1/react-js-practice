@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import App from "./App";
+// import Appfunc from "./AppFunc";
+
 //------------jsx:---------------------------------------
 
 // const element = <p>hello..!</p>;
@@ -12,7 +15,7 @@ import ReactDOM from 'react-dom';
 // const ele =<p>hello {students.map ((st) => st)}</p>;
 // const ele1 =<p>hello {obj.name}</p>;
 
-//------basic class component----------------
+//------class component-------
 
 // class App extends React.Component{
 //   render(){
@@ -20,9 +23,9 @@ import ReactDOM from 'react-dom';
 //   }
 // }
 //----function component-----
- function App(){
-  return <p>hello karthik...!</p>;
- }
+//  function App(){
+//   return <p>hello karthik...!</p>;
+//  }
 
 //----------render the reactapp in the dom:--------------------------
 
@@ -33,8 +36,9 @@ import ReactDOM from 'react-dom';
 // ReactDOM.render(ele1, document.getElementById('root'));
 
 
-ReactDOM.render(<App/>, document.getElementById('root'));                //<App/>
+ReactDOM.render(<App />, document.getElementById('root'));                //<App/>
                                                                          //const app = new app();
                                                                          //app.render();
+                                                                         
 
 
