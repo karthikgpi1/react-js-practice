@@ -1,8 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 import App from "./App";
-// import Appfunc from "./AppFunc";
+
+
+
+
+ReactDOM.render(
+  <div>                                         
+    <App
+    name = "karthik"
+    age = {22}
+    obj = {{name: "mk"}}
+    active = {true}
+    /> 
+  </div>,
+document.getElementById('root')); 
+
+
 
 //------------jsx:---------------------------------------
 
@@ -35,10 +50,12 @@ import App from "./App";
 // ReactDOM.render(ele, document.getElementById('root'));
 // ReactDOM.render(ele1, document.getElementById('root'));
 
-
-ReactDOM.render(<App />, document.getElementById('root'));                //<App/>
-                                                                         //const app = new app();
-                                                                         //app.render();
+// ReactDOM.render(
+// <div>                                         
+//   <App/>
+//   <AppFunc/>
+//   <p>hello karthik</p>
+// </div>, document.getElementById('root'));           // using div or React.fragment  
                                                                          
 
 
