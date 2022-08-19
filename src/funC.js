@@ -2,8 +2,9 @@ import React from "react";
 
 //----create a functional component in another file----------
 
-function AppFunc(){
-    return <p>hello app - functional !</p>;
+function AppFunc(props){
+    console.log(props);
+    return <p>hello {props.name} - functional !</p>;
     
 }
 

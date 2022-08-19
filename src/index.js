@@ -9,7 +9,7 @@ import App from "./App";
 ReactDOM.render(
   <div>                                         
     <App
-    name = "karthik"
+    name = ""
     age = {22}
     obj = {{name: "mk"}}
     active = {true}
