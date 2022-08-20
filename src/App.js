@@ -117,6 +117,10 @@ import React from "react";
 
 //-----------form validation------
 
+const validateEmail = RegExp(
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+);
+
 
 class App extends React.Component{
 
@@ -128,12 +132,57 @@ class App extends React.Component{
       roleAppliedFor: "",
       coverLetter: "",
       termsAndCond: "",
+      errors:{
+        fullName: "",
+        emailId: "",
+        coverLetter: "",
+        termsAndCond: "",
+      }
     };
   }
 
   handleChange = ({ target: {name, value, type, checked}}) =>{
     if (type === "checkbox") value = checked;
-    this.setState({ [name]: value});
+
+    const errors = this.state.errors;
+
+    switch(name){
+      case "fullName": {
+        if(value.length <=5) {
+          errors.fullName = "full name should be atleast 6 characters";
+        }else errors.fullName = "";
+        break;
+      }
+
+      case "emailId": {
+        if(value.length <=5) {
+          errors.emailId = "email should be atleast 6 characters";
+        }else if (!validateEmail.test(value)){
+          errors.emailId = "email is invalid";
+        }else errors.emailId ="";
+        break;
+      }
+
+      case "coverLetter": {
+        if(value.length <=9) {
+          errors.coverLetter = "cover letter should be atleast 6 characters";
+        }else errors.coverLetter = "";
+        break;
+      }
+
+      case "termsAndCond": {
+        if(!value) {
+          errors.termsAndCond = "Terms should be accepted";
+        }else errors.termsAndCond = "";
+        break;
+      }
+
+    }
+
+
+
+
+    this.setState({ [name]: value, errors});
   }
 
 
@@ -153,11 +202,13 @@ class App extends React.Component{
            <div>
              <label>full name :</label>
              <input name="fullName" type="text" value={this.state.fullName} onChange={this.handleChange}/>
+             <span>{this.state.errors.fullName}</span>
           </div>
           <br/>
           <div>
              <label>Email id :</label>
              <input name="emailId" type="email" value={this.state.emailId} onChange={this.handleChange}/>
+             <span>{this.state.errors.emailId}</span>
           </div>
           <br/>
 
@@ -174,12 +225,14 @@ class App extends React.Component{
           <div>
              <label>cover letter :</label>
              <textarea name="coverLetter" value={this.state.coverLetter} onChange={this.handleChange}></textarea>
+             <span>{this.state.errors.coverLetter}</span>
           </div>
           <br/>
 
           <div>
              <input name="termsAndCond" type="checkbox" value={this.state.termsAndCond} onChange={this.handleChange}/>
              <label>i agree T&C</label> 
+             <span>{this.state.errors.termsAndCond}</span>
           </div>
 
           <br/>
