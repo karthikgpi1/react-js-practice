@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 
+import AppFormik from "./appFormik"
+
 
 // class Test extends React.Component{
 
@@ -31,7 +33,9 @@ import App from "./App";
 
 // ReactDOM.render(<Test />, document.getElementById('root')); 
 
-ReactDOM.render(<App />, document.getElementById('root')); 
+// ReactDOM.render(<App />, document.getElementById('root')); 
+
+ReactDOM.render(<AppFormik />, document.getElementById('root')); 
 
 
 //------------jsx:---------------------------------------
