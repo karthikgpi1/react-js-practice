@@ -17,11 +17,24 @@ class PostApp extends React.Component{
 
     //create operation
     createPost = async() => {
-        
+        try {
+            const { userId, title, body } = this.state;
+            const { data: post } = await axios.post(API_URL, {
+                userId,
+                title,
+                body,
+            });
+            const posts = [...this.state.posts];
+            posts.push(post);
+            this.setState({ posts, userId: "", title:"", body:"" });
+
+        } catch (err){
+            console.log("error creating data for server", err);
+        }
     };
 
     //read operation
-    getPosts = async() => {
+    getPosts = async() => { 
        try {
         const { data } = await axios.get(API_URL);
         console.log(data);
@@ -33,7 +46,7 @@ class PostApp extends React.Component{
 
     //update operation
     updatePost = () => {
-      
+        
     };
 
     //delete operation
