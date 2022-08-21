@@ -9,6 +9,7 @@ class PostApp extends React.Component{
         super(props);
         this.state ={
             posts: [], 
+            id:"",
             userId: "",
             body: "",
             title:"",
@@ -45,8 +46,22 @@ class PostApp extends React.Component{
     };
 
     //update operation
-    updatePost = () => {
-        
+    updatePost = async() => {
+        try {
+            const { id,userId, title, body } = this.state;
+            const { data: post } = await axios.put(`${API_URL}/${id}`, {
+                userId,
+                title,
+                body,
+            });
+            const posts = [...this.state.posts];
+            const index = posts.findIndex((p) => p.id === id);
+            posts[index] = post;
+            this.setState({ posts, id: "", userId: "", title: "", body: "",});
+
+        } catch (err){
+            console.log("error updating data in server", err);
+        }
     };
 
     //delete operation
@@ -71,8 +86,15 @@ class PostApp extends React.Component{
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        this.createPost();
+        if (this.state.id) {
+            this.updatePost();
+        } else {
+            this.createPost(); 
+        }
+        
     };
+
+
 
     render (){
         return (
@@ -116,6 +138,9 @@ class PostApp extends React.Component{
                               <td>{post.userId}</td>
                               <td>{post.title}</td>
                               <td>{post.body}</td>
+                              <td>
+                                  <button onClick={() => this.setState({...post})}>update</button>
+                              </td>
                               <td>
                                   <button onClick={() => this.deletePost(post.id)}>Delete</button>
                               </td>
