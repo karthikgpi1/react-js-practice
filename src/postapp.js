@@ -33,7 +33,7 @@ class PostApp extends React.Component{
 
     //update operation
     updatePost = () => {
-        
+      
     };
 
     //delete operation
