@@ -124,29 +124,33 @@ class PostApp extends React.Component{
                    <br/>
                 </form>
                 <table>
-                  <tr>
-                      <th>UserId</th>
-                      <th>PostId</th>
-                      <th>Title</th>
-                      <th>Body</th>
-                      <th>Actions</th>
-                  </tr>
-                  {this.state.posts.map((post) =>{
-                      return (
-                          <tr>
-                              <td>{post.id}</td> 
-                              <td>{post.userId}</td>
-                              <td>{post.title}</td>
-                              <td>{post.body}</td>
-                              <td>
-                                  <button onClick={() => this.setState({...post})}>update</button>
-                              </td>
-                              <td>
-                                  <button onClick={() => this.deletePost(post.id)}>Delete</button>
-                              </td>
-                          </tr>
-                      );
-                  })}
+                  <thead>
+                      <tr>
+                          <th>UserId</th>
+                          <th>PostId</th>
+                          <th>Title</th>
+                          <th>Body</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                       {this.state.posts.map((post) =>{
+                           return (
+                               <tr key={post.id}>
+                                   <td>{post.id}</td> 
+                                   <td>{post.userId}</td>
+                                   <td>{post.title}</td>
+                                   <td>{post.body}</td>
+                                   <td>
+                                       <button onClick={() => this.setState({...post})}>update</button>
+                                   </td>
+                                   <td>
+                                       <button onClick={() => this.deletePost(post.id)}>Delete</button>
+                                   </td>
+                               </tr>
+                           ); 
+                       })}
+                  </tbody>
               </table>
             </>
         ) 
