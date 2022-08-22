@@ -9,7 +9,9 @@ import ReactDOM from "react-dom";
 
 // import Counter from "./counter";
 
-import Counter2 from "./counter2";
+// import Counter2 from "./counter2";
+
+import Counter3 from "./counter3";
 
 
 
@@ -48,7 +50,9 @@ import Counter2 from "./counter2";
 
 // ReactDOM.render(<Counter />, document.getElementById('root'));
 
-ReactDOM.render(<Counter2 />, document.getElementById('root'));
+// ReactDOM.render(<Counter2 />, document.getElementById('root'));
+
+
 
 
 //------------jsx:---------------------------------------
@@ -87,7 +91,22 @@ ReactDOM.render(<Counter2 />, document.getElementById('root'));
 //   <App/>
 //   <AppFunc/>
 //   <p>hello karthik</p>
-// </div>, document.getElementById('root'));           // using div or React.fragment  
-                                                                         
+// </div>, document.getElementById('root'));           // using div or React.fragment 
+
+
+//----counter3--componentwillUnMount-----------------
+
+function Test () {
+    const [show, setShow] = React.useState(true);
+
+    return (
+        <>
+        <button onClick={() => setShow(!show)}>show/hide</button>
+        {show ? <Counter3 /> : <></>}
+        </>
+    );
+}
+
+ReactDOM.render(<Test />, document.getElementById('root'));
 
 
