@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
+// import App from "./App";
 
-import AppFormik from "./appFormik";
+// import AppFormik from "./appFormik";
 
-import PostApp from "./postapp";
+// import PostApp from "./postapp";
 
-import Counter from "./counter";
+// import Counter from "./counter";
+
+import Counter2 from "./counter2";
 
 
 
@@ -44,7 +46,9 @@ import Counter from "./counter";
 
 // ReactDOM.render(<PostApp />, document.getElementById('root')); 
 
-ReactDOM.render(<Counter />, document.getElementById('root')); 
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+ReactDOM.render(<Counter2 />, document.getElementById('root'));
 
 
 //------------jsx:---------------------------------------
