@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-
+import {Button, Table} from "react-bootstrap"
 
 
 const API_URL ="https://jsonplaceholder.typicode.com/posts";
@@ -119,11 +119,11 @@ class PostApp extends React.Component{
                    </div>
                    <br/>
                    <div>
-                     <button type="submit">submit</button>
+                     <Button variant="primary" type="submit">submit</Button>
                    </div>
                    <br/>
                 </form>
-                <table>
+                <Table striped border hover>
                   <thead>
                       <tr>
                           <th>UserId</th>
@@ -142,16 +142,16 @@ class PostApp extends React.Component{
                                    <td>{post.title}</td>
                                    <td>{post.body}</td>
                                    <td>
-                                       <button onClick={() => this.setState({...post})}>update</button>
+                                       <Button variant="primary" onClick={() => this.setState({...post})}>update</Button>
                                    </td>
                                    <td>
-                                       <button onClick={() => this.deletePost(post.id)}>Delete</button>
+                                       <Button variant="danger"  onClick={() => this.deletePost(post.id)}>Delete</Button>
                                    </td>
                                </tr>
                            ); 
                        })}
                   </tbody>
-              </table>
+              </Table>
             </>
         ) 
     }

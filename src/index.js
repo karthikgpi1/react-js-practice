@@ -5,13 +5,15 @@ import ReactDOM from "react-dom";
 
 // import AppFormik from "./appFormik";
 
-// import PostApp from "./postapp";
+import PostApp from "./postapp";
 
 // import Counter from "./counter";
 
 // import Counter2 from "./counter2";
 
-import Counter3 from "./counter3";
+// import Counter3 from "./counter3";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -46,7 +48,7 @@ import Counter3 from "./counter3";
 
 // ReactDOM.render(<AppFormik />, document.getElementById('root')); 
 
-// ReactDOM.render(<PostApp />, document.getElementById('root')); 
+ReactDOM.render(<PostApp />, document.getElementById('root')); 
 
 // ReactDOM.render(<Counter />, document.getElementById('root'));
 
@@ -96,17 +98,17 @@ import Counter3 from "./counter3";
 
 //----counter3--componentwillUnMount-----------------
 
-function Test () {
-    const [show, setShow] = React.useState(true);
+// function Test () {
+//     const [show, setShow] = React.useState(true);
 
-    return (
-        <>
-        <button onClick={() => setShow(!show)}>show/hide</button>
-        {show ? <Counter3 /> : <></>}
-        </>
-    );
-}
+//     return (
+//         <>
+//         <button onClick={() => setShow(!show)}>show/hide</button>
+//         {show ? <Counter3 /> : <></>}
+//         </>
+//     );
+// }
 
-ReactDOM.render(<Test />, document.getElementById('root'));
+// ReactDOM.render(<Test />, document.getElementById('root'));
 
 
