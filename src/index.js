@@ -7,6 +7,9 @@ import AppFormik from "./appFormik";
 
 import PostApp from "./postapp";
 
+import Counter from "./counter";
+
+
 
 // class Test extends React.Component{
 
@@ -39,7 +42,9 @@ import PostApp from "./postapp";
 
 // ReactDOM.render(<AppFormik />, document.getElementById('root')); 
 
-ReactDOM.render(<PostApp />, document.getElementById('root')); 
+// ReactDOM.render(<PostApp />, document.getElementById('root')); 
+
+ReactDOM.render(<Counter />, document.getElementById('root')); 
 
 
 //------------jsx:---------------------------------------
